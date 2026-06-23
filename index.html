@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Laboratorio Virtual · Notación Científica y Conversión de Unidades</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Fondo decorativo tipo papel milimetrado, puramente visual -->
+<div class="grid-bg" aria-hidden="true"></div>
+
+<!-- ======================================================= -->
+<!-- 1. PORTADA -->
+<!-- ======================================================= -->
+<header class="hero" id="portada">
+  <div class="hero-badge">10⁰</div>
+  <h1 class="hero-title">Notación Científica<br>y Conversión de Unidades</h1>
+  <p class="hero-sub">Laboratorio virtual de Física · Nivel Bachillerato</p>
+
+  <div class="hero-ruler" aria-hidden="true">
+    <!-- Regla visual decorativa generada con CSS, representa la idea de "escala" -->
+    <div class="ruler-line"></div>
+    <span>10⁻⁶</span><span>10⁻³</span><span>10⁰</span><span>10³</span><span>10⁶</span><span>10⁹</span>
+  </div>
+
+  <div class="hero-objective">
+    <h2>Objetivo general</h2>
+    <p>Comprender, aplicar y verificar el uso de la notación científica y la conversión de unidades del
+    Sistema Internacional (SI) como herramientas fundamentales para expresar y operar magnitudes físicas
+    de cualquier escala, desde el mundo subatómico hasta el astronómico.</p>
+  </div>
+
+  <a href="#instrucciones" class="scroll-cue">↓ Comenzar laboratorio</a>
+</header>
+
+<main>
+
+  <!-- ======================================================= -->
+  <!-- INSTRUCCIONES DE USO -->
+  <!-- ======================================================= -->
+  <section class="section" id="instrucciones">
+    <span class="section-tag">10¹</span>
+    <h2>Instrucciones de uso</h2>
+    <ol class="instructions-list">
+      <li>Lee la introducción teórica y las fórmulas antes de usar la simulación.</li>
+      <li>En la simulación encontrarás <strong>tres pestañas</strong>: conversión a notación científica,
+        operaciones con notación científica y conversor de unidades.</li>
+      <li>Ingresa los valores solicitados en cada panel y presiona el botón correspondiente para calcular.</li>
+      <li>Cada resultado se agrega automáticamente a la <strong>tabla de datos</strong>, ubicada más abajo.</li>
+      <li>Al finalizar, responde la sección de análisis con base en tus propios resultados.</li>
+    </ol>
+    <p class="time-note">⏱ Tiempo estimado de uso: 30 a 45 minutos.</p>
+  </section>
+
+  <!-- ======================================================= -->
+  <!-- 2. INTRODUCCIÓN TEÓRICA -->
+  <!-- ======================================================= -->
+  <section class="section" id="introduccion">
+    <span class="section-tag">10²</span>
+    <h2>Introducción teórica</h2>
+    <p>En física es común trabajar con magnitudes extremadamente grandes (la distancia entre galaxias) o
+    extremadamente pequeñas (el radio de un átomo). Escribir estos números con todas sus cifras es poco
+    práctico y propenso a errores. La <strong>notación científica</strong> resuelve este problema expresando
+    cualquier número como el producto de una <em>mantisa</em> (un número entre 1 y 10) y una potencia de
+    base 10.</p>
+    <p>De forma complementaria, la <strong>conversión de unidades</strong> permite expresar una misma magnitud
+    física en distintas unidades del Sistema Internacional (SI) o de otros sistemas, multiplicando el valor
+    original por un <em>factor de conversión</em> adecuado. Ambas herramientas —notación científica y
+    conversión de unidades— se usan de manera conjunta constantemente en el trabajo experimental y teórico
+    de la física.</p>
+  </section>
+
+  <!-- ======================================================= -->
+  <!-- 3. FÓRMULAS PRINCIPALES -->
+  <!-- ======================================================= -->
+  <section class="section" id="formulas">
+    <span class="section-tag">10³</span>
+    <h2>Fórmulas principales</h2>
+    <div class="formula-grid">
+      <div class="formula-card">
+        <h3>Notación científica</h3>
+        <p class="formula">N = a × 10<sup>n</sup></p>
+        <p class="formula-desc">Donde 1 ≤ |a| &lt; 10 (mantisa) y n es un número entero (exponente).</p>
+      </div>
+      <div class="formula-card">
+        <h3>Multiplicación</h3>
+        <p class="formula">(a×10<sup>m</sup>)(b×10<sup>n</sup>) = (a·b)×10<sup>m+n</sup></p>
+        <p class="formula-desc">Se multiplican las mantisas y se suman los exponentes.</p>
+      </div>
+      <div class="formula-card">
+        <h3>División</h3>
+        <p class="formula">(a×10<sup>m</sup>) ÷ (b×10<sup>n</sup>) = (a÷b)×10<sup>m−n</sup></p>
+        <p class="formula-desc">Se dividen las mantisas y se restan los exponentes.</p>
+      </div>
+      <div class="formula-card">
+        <h3>Conversión de unidades</h3>
+        <p class="formula">V<sub>destino</sub> = V<sub>origen</sub> × (F<sub>origen</sub> / F<sub>destino</sub>)</p>
+        <p class="formula-desc">F es el factor de conversión de cada unidad respecto a la unidad base del SI.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================= -->
+  <!-- 4 y 5. SIMULACIÓN INTERACTIVA + CONTROLES -->
+  <!-- ======================================================= -->
+  <section class="section" id="simulacion">
+    <span class="section-tag">10⁴</span>
+    <h2>Simulación interactiva</h2>
+
+    <!-- Pestañas para alternar entre las tres herramientas -->
+    <div class="tabs" role="tablist">
+      <button class="tab-btn active" data-tab="tab-decimal" role="tab" aria-selected="true">Decimal → Notación científica</button>
+      <button class="tab-btn" data-tab="tab-operaciones" role="tab" aria-selected="false">Operaciones científicas</button>
+      <button class="tab-btn" data-tab="tab-unidades" role="tab" aria-selected="false">Conversor de unidades</button>
+    </div>
+
+    <!-- PANEL 1: Decimal -> Notación científica y viceversa -->
+    <div class="tab-panel active" id="tab-decimal">
+      <div class="panel-grid">
+        <div class="control-card">
+          <h3>De decimal a notación científica</h3>
+          <label for="inputDecimal">Número decimal</label>
+          <input type="number" id="inputDecimal" step="any" placeholder="Ej: 0.00056 ó 45000000">
+          <input type="range" id="sliderDecimalExp" min="-9" max="9" value="0" step="1">
+          <small class="slider-hint">Control rápido de escala: mueve el control para generar potencias de 10 de ejemplo</small>
+          <button id="btnToScientific">Convertir →</button>
+          <div class="result-box" id="resultToScientific">
+            <span class="result-placeholder">El resultado aparecerá aquí</span>
+          </div>
+        </div>
+
+        <div class="control-card">
+          <h3>De notación científica a decimal</h3>
+          <label for="inputMantissa">Mantisa (a)</label>
+          <input type="number" id="inputMantissa" step="any" value="1" placeholder="Ej: 5.6">
+          <label for="inputExponent">Exponente (n)</label>
+          <input type="number" id="inputExponent" step="1" value="0" placeholder="Ej: -4">
+          <button id="btnToDecimal">Convertir →</button>
+          <div class="result-box" id="resultToDecimal">
+            <span class="result-placeholder">El resultado aparecerá aquí</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PANEL 2: Operaciones con notación científica -->
+    <div class="tab-panel" id="tab-operaciones">
+      <div class="control-card wide">
+        <h3>Multiplicación y división en notación científica</h3>
+        <div class="op-row">
+          <div class="op-group">
+            <label>Valor A</label>
+            <div class="op-inline">
+              <input type="number" id="opA_mantissa" step="any" value="2" aria-label="Mantisa A">
+              <span>× 10</span>
+              <input type="number" id="opA_exp" step="1" value="3" aria-label="Exponente A">
+            </div>
+          </div>
+
+          <select id="opOperator">
+            <option value="mult">×</option>
+            <option value="div">÷</option>
+          </select>
+
+          <div class="op-group">
+            <label>Valor B</label>
+            <div class="op-inline">
+              <input type="number" id="opB_mantissa" step="any" value="4" aria-label="Mantisa B">
+              <span>× 10</span>
+              <input type="number" id="opB_exp" step="1" value="2" aria-label="Exponente B">
+            </div>
+          </div>
+        </div>
+        <button id="btnOperar">Calcular resultado</button>
+        <div class="result-box" id="resultOperacion">
+          <span class="result-placeholder">El resultado aparecerá aquí</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- PANEL 3: Conversor de unidades -->
+    <div class="tab-panel" id="tab-unidades">
+      <div class="control-card wide">
+        <h3>Conversor de unidades físicas</h3>
+        <div class="unit-row">
+          <div class="op-group">
+            <label for="unitCategory">Magnitud</label>
+            <select id="unitCategory">
+              <option value="longitud">Longitud</option>
+              <option value="masa">Masa</option>
+              <option value="tiempo">Tiempo</option>
+              <option value="volumen">Volumen</option>
+            </select>
+          </div>
+          <div class="op-group">
+            <label for="unitValue">Valor</label>
+            <input type="number" id="unitValue" step="any" value="1">
+          </div>
+          <div class="op-group">
+            <label for="unitFrom">De</label>
+            <select id="unitFrom"></select>
+          </div>
+          <div class="op-group">
+            <label for="unitTo">A</label>
+            <select id="unitTo"></select>
+          </div>
+        </div>
+        <button id="btnConvertirUnidad">Convertir unidad</button>
+        <div class="result-box" id="resultUnidad">
+          <span class="result-placeholder">El resultado aparecerá aquí</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================= -->
+  <!-- 6 y 7. TABLA DE DATOS GENERADA -->
+  <!-- ======================================================= -->
+  <section class="section" id="tabla-datos">
+    <span class="section-tag">10⁵</span>
+    <h2>Tabla de datos de la sesión</h2>
+    <p>Cada cálculo realizado en la simulación se registra automáticamente en esta tabla.</p>
+    <div class="table-wrapper">
+      <table id="dataTable">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Herramienta</th>
+            <th>Entrada</th>
+            <th>Resultado</th>
+            <th>Notación científica</th>
+          </tr>
+        </thead>
+        <tbody id="dataTableBody">
+          <!-- Filas generadas dinámicamente por JavaScript -->
+        </tbody>
+      </table>
+    </div>
+    <button id="btnLimpiarTabla" class="secondary-btn">Limpiar tabla</button>
+  </section>
+
+  <!-- ======================================================= -->
+  <!-- 8. ANÁLISIS -->
+  <!-- ======================================================= -->
+  <section class="section" id="analisis">
+    <span class="section-tag">10⁶</span>
+    <h2>Análisis</h2>
+    <p>Responde las siguientes preguntas utilizando los resultados que obtuviste en la simulación:</p>
+    <ol class="analysis-list">
+      <li>Convierte la masa del electrón (9.11 × 10⁻³¹ kg) a gramos. ¿Qué exponente obtuviste y por qué es negativo?</li>
+      <li>Explica con tus propias palabras qué representa el exponente en la notación científica: ¿qué cambia si aumenta o disminuye en una unidad?</li>
+      <li>Realiza una multiplicación en el panel de operaciones donde el resultado de la mantisa sea mayor o igual a 10. ¿Qué tuviste que hacer para normalizar el resultado?</li>
+      <li>Convierte una misma cantidad de longitud entre tres unidades distintas (por ejemplo, km → m → cm). Comprueba que el valor en notación científica representa la misma magnitud física.</li>
+      <li>¿Por qué es más útil expresar la velocidad de la luz (3 × 10⁸ m/s) en notación científica que escribir 300 000 000 m/s?</li>
+    </ol>
+  </section>
+
+  <!-- ======================================================= -->
+  <!-- 9. CONCLUSIONES -->
+  <!-- ======================================================= -->
+  <section class="section" id="conclusiones">
+    <span class="section-tag">10⁷</span>
+    <h2>Conclusiones</h2>
+    <p>La notación científica y la conversión de unidades no son simples reglas matemáticas: son el lenguaje
+    que permite comunicar mediciones físicas de forma precisa, comparable y libre de ambigüedad, sin importar
+    la escala del fenómeno estudiado. Dominar estas herramientas es indispensable antes de abordar temas como
+    cinemática, dinámica, energía o electricidad, ya que en todos ellos las magnitudes deben expresarse de
+    manera coherente dentro del Sistema Internacional.</p>
+  </section>
+
+  <!-- ======================================================= -->
+  <!-- 10. REFERENCIAS APA 7 -->
+  <!-- ======================================================= -->
+  <section class="section" id="referencias">
+    <span class="section-tag">10⁸</span>
+    <h2>Referencias</h2>
+    <ul class="references-list">
+      <li>Bureau International des Poids et Mesures. (2019). <em>The International System of Units (SI)</em> (9th ed.). BIPM. https://www.bipm.org/en/publications/si-brochure</li>
+      <li>Hewitt, P. G. (2015). <em>Conceptual physics</em> (12th ed.). Pearson Education.</li>
+      <li>Serway, R. A., &amp; Jewett, J. W. (2018). <em>Physics for scientists and engineers</em> (10th ed.). Cengage Learning.</li>
+      <li>Tipler, P. A., &amp; Mosca, G. (2008). <em>Physics for scientists and engineers</em> (6th ed.). W. H. Freeman.</li>
+    </ul>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>Laboratorio Virtual de Física · Nivel Bachillerato · Construido con HTML, CSS y JavaScript puro.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
